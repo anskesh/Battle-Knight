@@ -22,7 +22,8 @@ public class EnemyDetector : MonoBehaviour
 
     private void Update()
     {
-        _enemiesGroups.RemoveAll(item => item == null);
+        if (_target.GetComponent<EnemiesGroup>().enabled == false) _target = null;
+        _enemiesGroups.RemoveAll(item => item.enabled == false);
         if (_enemiesGroups.Count == 0) return;
         if (_target == null)
         {
@@ -41,7 +42,7 @@ public class EnemyDetector : MonoBehaviour
 
     private void FindClosestGroup()
     {
-        _enemiesGroups.RemoveAll(item => item == null);
+        _enemiesGroups.RemoveAll(item => item.enabled == false);
         _currentDistance = Vector3.Distance(_playerTransform.position, _target.transform.position);
         foreach (var group in _enemiesGroups)
         {

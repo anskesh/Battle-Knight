@@ -114,6 +114,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: 60
+  _collectables:
+  - {fileID: 7425645456604684720, guid: 981be179cf6b02b40b60fd8265181aed, type: 3}
 --- !u!208 &2224136938377238827
 NavMeshObstacle:
   m_ObjectHideFlags: 0

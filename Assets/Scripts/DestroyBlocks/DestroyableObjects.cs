@@ -1,8 +1,10 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class DestroyableObjects : MonoBehaviour, IDamageable
 {
     [SerializeField] private int _health;
+    [SerializeField] private List<GameObject> _collectables;
 
     public void ApplyDamage(int damage)
     {
@@ -14,13 +16,17 @@ public class DestroyableObjects : MonoBehaviour, IDamageable
         }
     }
     
-    public GameObject GetObject()
+    public Transform GetTransform()
     {
-        return gameObject;
+        return transform;
     }
     
     private void Died()
     {
+        foreach (var item in _collectables)
+        {
+            Instantiate(item, transform.position, Quaternion.identity, transform.parent);
+        }
         Destroy(gameObject);
     }
 

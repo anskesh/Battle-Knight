@@ -1,6 +1,3 @@
-using System;
-using UnityEngine;
-
 public class PlayerDieTransition : Transition
 {
 	private Enemy _enemy;

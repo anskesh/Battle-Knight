@@ -9,6 +9,7 @@ public class PlayerMoveState : State
 
 	private Rigidbody _rigidbody;
 	private Animator _animator;
+	private Quaternion _rotation;
 
 	private void Awake()
 	{
@@ -29,7 +30,8 @@ public class PlayerMoveState : State
 		
 		var moveDirection = new Vector3(x, 0, z);
 		_rigidbody.velocity = moveDirection * _speed;
-		transform.rotation = Quaternion.LookRotation(_rigidbody.velocity);
+		if (_rigidbody.velocity != Vector3.zero)
+			transform.rotation = Quaternion.LookRotation(_rigidbody.velocity);
 		_animator.SetBool("IsWalk", true);
 	}
 }

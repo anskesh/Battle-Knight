@@ -79,7 +79,7 @@ public class EnemiesGroup : MonoBehaviour
 		GroupsController.CurrentCountEnemy--;
 		CountEnemy--;
 		EnemyCountChanged?.Invoke();
-		if (CountEnemy == 0) Destroy(gameObject);
+		if (CountEnemy == 0) enabled = false;
 	}
 
 	private void OnPlayerDeath()

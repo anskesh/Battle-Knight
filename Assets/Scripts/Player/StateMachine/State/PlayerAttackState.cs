@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using Random = UnityEngine.Random;
 
 public class PlayerAttackState : State
@@ -11,46 +12,54 @@ public class PlayerAttackState : State
     [SerializeField] private Sword _sword;
     
     private Animator _animator;
-    private PlayerMover _playerMover;
-    private bool _enemyNear;
-    private Transform _target;
-    private List<IDamageable> _damageables = new List<IDamageable>();
+    private NavMeshAgent _agent;
+    private IDamageable _target;
+    private IEnumerator _attackEnemy;
 
     private void Awake()
     {
         _animator = GetComponent<Animator>();
+        _agent = GetComponent<NavMeshAgent>();
         _sword.Damage = _damage;
     }
 
     private void OnEnable()
     {
-        StartCoroutine(AttackAnimation());
+        _attackEnemy = AttackAnimation();
+        StartCoroutine(_attackEnemy);
     }
 
     private void OnDisable()
     {
+        StopCoroutine(_attackEnemy);
+        _target = null;
+        _sword.GetComponent<Collider>().enabled = false;
         _animator.SetBool("IsAttack", false);
+        _agent.isStopped = true;
     }
 
     private IEnumerator AttackAnimation()
     {
-        var timeForAnimation = 0.15f;
+        var timeForAnimation = 0.20f;
         while (_target != null)
         {
-            transform.LookAt(_target);
+            var targetTransform = _target.GetTransform();
+            transform.LookAt(targetTransform);
+            _agent.SetDestination(targetTransform.position);
+            _agent.isStopped = false;
             
             _sword.GetComponent<Collider>().enabled = true;
-            _animator.SetBool("IsAttack", true);
-            
             yield return new WaitForSeconds(0.01f);
-            
-            _animator.SetBool("IsAttack", false);
-            
+            _animator.Play("NormalAttack01_SingleTwohandSword");
+            yield return new WaitForSeconds(0.01f);
+            _animator.StopPlayback();
+
             yield return new WaitForSeconds(timeForAnimation);
-            
+
+            _agent.isStopped = true;
             _sword.GetComponent<Collider>().enabled = false;
             _sword.ClearEnemy();
-            /*_damageables.Clear();*/
+            _target = null;
             
             yield return new WaitForSeconds(_timeBetweenAttack - timeForAnimation);
         }
@@ -61,32 +70,17 @@ public class PlayerAttackState : State
     {
         if (other.TryGetComponent(out IDamageable damageable))
         {
-            _enemyNear = true;
-            if (_target != null) return;
-            _target = damageable.GetObject().transform;
-            /*if (!_damageables.Contains(damageable))
-            {
-                _damageables.Add(damageable);
-            }*/
+            if (_target == null) 
+                _target = damageable;
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        _enemyNear = true;
-        /*if (other.TryGetComponent(out IDamageable damageable))
+        if (other.TryGetComponent(out IDamageable damageable))
         {
-            if (!_damageables.Contains(damageable))
-                _damageables.Add(damageable);
-        }*/
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        /*if (other.TryGetComponent(out IDamageable damageable))
-        {
-            if (_damageables.Contains(damageable))
-                _damageables.Remove(damageable);
-        }*/
+            if (_target == null) 
+                _target = damageable;
+        }
     }
 }

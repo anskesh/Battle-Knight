@@ -1264,11 +1264,14 @@ GameObject:
   - component: {fileID: 2803850148994246331}
   - component: {fileID: 6981955713510970273}
   - component: {fileID: 2992891694721664222}
+  - component: {fileID: 8684707167806210175}
+  - component: {fileID: 2897748541736484801}
+  - component: {fileID: 2017290124458153334}
   - component: {fileID: 2362672515690466737}
   - component: {fileID: 8359084902692297565}
   - component: {fileID: 7940130896253465340}
-  - component: {fileID: 8684707167806210175}
   - component: {fileID: 7913631193511770910}
+  - component: {fileID: 1095293624667993387}
   - component: {fileID: 8201147911203595045}
   - component: {fileID: 1331798204661022152}
   m_Layer: 0
@@ -1343,8 +1346,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aa2d1bf8d3b3174bb9cade54ca25bea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 1000
-  _healthBar: {fileID: 4327464774754676687}
+  _health: 200
 --- !u!114 &2803850148994246331
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1358,7 +1360,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _firstState: {fileID: 6981955713510970273}
-  _celebration: {fileID: 0}
+  _celebration: {fileID: 2897748541736484801}
 --- !u!114 &6981955713510970273
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1374,6 +1376,7 @@ MonoBehaviour:
   _transitions:
   - {fileID: 2362672515690466737}
   - {fileID: 7940130896253465340}
+  - {fileID: 1095293624667993387}
 --- !u!114 &2992891694721664222
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1389,8 +1392,54 @@ MonoBehaviour:
   _transitions:
   - {fileID: 8359084902692297565}
   - {fileID: 7940130896253465340}
+  - {fileID: 1095293624667993387}
   _joystick: {fileID: 0}
   _speed: 7
+--- !u!114 &8684707167806210175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8201147911203595033}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d79e6235d36d6d0498e100218abf61d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _transitions:
+  - {fileID: 7913631193511770910}
+  - {fileID: 1095293624667993387}
+  _damage: 60
+  _timeBetweenAttack: 0.5
+  _sword: {fileID: 919418391072973524}
+--- !u!114 &2897748541736484801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8201147911203595033}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63252c3c55ed1af4eb9daae225aec403, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _transitions: []
+--- !u!114 &2017290124458153334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8201147911203595033}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab3d24413dabf7b4ba42b4f122fb74a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _transitions: []
+  _healthBar: {fileID: 4327464774754676687}
 --- !u!114 &2362672515690466737
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1432,23 +1481,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetState: {fileID: 8684707167806210175}
---- !u!114 &8684707167806210175
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8201147911203595033}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d79e6235d36d6d0498e100218abf61d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _transitions:
-  - {fileID: 7913631193511770910}
-  _damage: 60
-  _timeBetweenAttack: 0.5
-  _sword: {fileID: 919418391072973524}
 --- !u!114 &7913631193511770910
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1462,6 +1494,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetState: {fileID: 6981955713510970273}
+--- !u!114 &1095293624667993387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8201147911203595033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 965f221816413424585d6ab76e34001a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetState: {fileID: 2017290124458153334}
 --- !u!136 &8201147911203595045
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1487,7 +1532,7 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 7
-  m_Acceleration: 12
+  m_Acceleration: 20
   avoidancePriority: 50
   m_AngularSpeed: 160
   m_StoppingDistance: 1.5
