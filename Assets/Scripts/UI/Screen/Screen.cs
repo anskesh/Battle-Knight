@@ -7,7 +7,6 @@ public abstract class Screen : MonoBehaviour
 
     public void Open()
     {
-        _group.alpha = 1;
-        _group.interactable = true;
+        _group.gameObject.SetActive(true);
     }
 }

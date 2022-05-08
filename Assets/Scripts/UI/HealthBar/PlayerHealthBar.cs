@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -34,11 +33,12 @@ public class PlayerHealthBar : MonoBehaviour
 
     private void OnHealthChanged(int currentHealth, int maxHealth)
     {
-        if (currentHealth != maxHealth) 
+        _image.fillAmount = (float) currentHealth / maxHealth;
+        
+        if (currentHealth < maxHealth) 
             _healthbar.gameObject.SetActive(true);
         else 
             _healthbar.gameObject.SetActive(false);
         
-        _image.fillAmount = (float) currentHealth / maxHealth;
     }
 }

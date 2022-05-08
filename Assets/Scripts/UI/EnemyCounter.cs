@@ -11,8 +11,6 @@ public class EnemyCounter : MonoBehaviour
     
     private GroupsController _groupsController;
 
-    public event UnityAction GameEnded;
-
     private void OnEnable()
     {
         _groupsController = FindObjectOfType<GroupsController>();
@@ -29,6 +27,5 @@ public class EnemyCounter : MonoBehaviour
         var percent =  current * 100 /  max;
         _fill.fillAmount = current / (float) max;
         _percent.text = percent + "%";
-        if (percent == 100) GameEnded?.Invoke();
     }
 }

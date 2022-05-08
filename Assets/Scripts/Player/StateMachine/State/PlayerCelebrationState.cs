@@ -13,6 +13,5 @@ public class PlayerCelebrationState : State
 	{
 		transform.LookAt(Camera.main.transform);
 		_animator.Play("Victory_SingleTwohandSword");
-		GetComponentInChildren<EnemyDetector>().enabled = false;
 	}
 }

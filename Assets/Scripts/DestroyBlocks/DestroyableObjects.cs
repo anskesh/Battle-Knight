@@ -6,6 +6,7 @@ public class DestroyableObjects : MonoBehaviour, IDamageable
     [SerializeField] private int _health;
     [SerializeField] private List<GameObject> _collectables;
 
+    public int Health => _health;
     public void ApplyDamage(int damage)
     {
         _health -= damage;
@@ -23,10 +24,7 @@ public class DestroyableObjects : MonoBehaviour, IDamageable
     
     private void Died()
     {
-        foreach (var item in _collectables)
-        {
-            Instantiate(item, transform.position, Quaternion.identity, transform.parent);
-        }
+        Instantiate(_collectables[0], transform.position, Quaternion.identity, transform.parent);
         Destroy(gameObject);
     }
 

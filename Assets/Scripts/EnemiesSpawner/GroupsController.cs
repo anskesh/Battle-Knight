@@ -11,9 +11,11 @@ public class GroupsController : MonoBehaviour
 
     public static int CurrentCountEnemy;
     public event UnityAction<int, int> EnemyCountChanged;
+    public event UnityAction GameEnded;
 
     private void Start()
     {
+        CurrentCountEnemy = 0;
         _groups = GetComponentsInChildren<EnemiesGroup>().ToList();
         SpawnEnemyAllGroups();
         EnemyCountChanged?.Invoke(_allCountEnemy - CurrentCountEnemy, _allCountEnemy);
@@ -43,5 +45,6 @@ public class GroupsController : MonoBehaviour
     private void OnEnemyCountChanged()
     {
         EnemyCountChanged?.Invoke(_allCountEnemy - CurrentCountEnemy, _allCountEnemy);
+        if (CurrentCountEnemy == 0) GameEnded?.Invoke();
     }
 }

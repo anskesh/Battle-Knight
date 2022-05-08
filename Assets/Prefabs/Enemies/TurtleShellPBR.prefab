@@ -1309,7 +1309,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7196768844372904836}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1353,6 +1353,7 @@ MonoBehaviour:
   _health: 240
   _collectables:
   - {fileID: 7347895408902028191, guid: 6ebee12901d6e8b48a57df78e471c7a1, type: 3}
+  _death: {fileID: 1046977381630119027, guid: 9fb8838ab6f23fb40afab3553b351216, type: 3}
 --- !u!136 &5746323816585927169
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1452,7 +1453,7 @@ MonoBehaviour:
   - {fileID: 5183939280182936981}
   - {fileID: 7875543813413899511}
   _damage: 35
-  _cooldown: 1
+  _cooldown: 1.2
 --- !u!114 &8089615491558064543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1546,7 +1547,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetState: {fileID: 9173513606246259968}
-  _radius: 3
+  _radius: 2.5
 --- !u!114 &5183939280182936981
 MonoBehaviour:
   m_ObjectHideFlags: 0

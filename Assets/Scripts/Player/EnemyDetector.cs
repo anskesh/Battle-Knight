@@ -21,17 +21,20 @@ public class EnemyDetector : MonoBehaviour
     }
 
     private void Update()
-    {
-        if (_target.GetComponent<EnemiesGroup>().enabled == false) _target = null;
+    {  
         _enemiesGroups.RemoveAll(item => item.enabled == false);
-        if (_enemiesGroups.Count == 0) return;
-        if (_target == null)
+        if (_enemiesGroups.Count == 0)
         {
-            _target = _enemiesGroups[0].transform;
-            _currentDistance = Vector3.Distance(_playerTransform.position, _target.transform.position);
+            _image.gameObject.SetActive(false);
+            return;
         }
+        
+        if (_target.GetComponent<EnemiesGroup>().enabled == false)
+            _target = _enemiesGroups[0].transform;
         FindClosestGroup();
-        if (Vector3.Distance(_playerTransform.position, _target.position) <= _detectorDisablingDistance) _image.gameObject.SetActive(false);
+        
+        if (Vector3.Distance(_playerTransform.position, _target.position) <= _detectorDisablingDistance) 
+            _image.gameObject.SetActive(false);
         else
         {
             transform.LookAt(_target);
@@ -42,7 +45,6 @@ public class EnemyDetector : MonoBehaviour
 
     private void FindClosestGroup()
     {
-        _enemiesGroups.RemoveAll(item => item.enabled == false);
         _currentDistance = Vector3.Distance(_playerTransform.position, _target.transform.position);
         foreach (var group in _enemiesGroups)
         {

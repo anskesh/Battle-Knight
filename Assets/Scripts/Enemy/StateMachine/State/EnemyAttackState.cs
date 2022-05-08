@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class EnemyAttackState : State
@@ -22,6 +23,11 @@ public class EnemyAttackState : State
         }
 
         _elapsedTime += Time.deltaTime;
+    }
+
+    private void OnEnable()
+    {
+        _animator.StopPlayback();
     }
 
     private void OnDisable()

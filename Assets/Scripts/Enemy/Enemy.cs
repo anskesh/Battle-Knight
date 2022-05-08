@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour, IDamageable
 {
 	[SerializeField] private int _health;
 	[SerializeField] private List<GameObject> _collectables;
+	[SerializeField] private GameObject _death;
 
 	private Animator _animator;
 	private int _maxHealth;
@@ -53,11 +54,13 @@ public class Enemy : MonoBehaviour, IDamageable
 	}
 	private void Died()
 	{
+		EnemyDied?.Invoke(this);
 		foreach (var item in _collectables)
 		{
 			Instantiate(item, transform.position, Quaternion.identity, transform.parent);
 		}
-		EnemyDied?.Invoke(this);
+
+		Instantiate(_death, transform);
 		Destroy(gameObject, 3f);
 	}
 }

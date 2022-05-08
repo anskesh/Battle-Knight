@@ -184,7 +184,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_TargetDisplay: 0
 --- !u!114 &202089758652744291
 MonoBehaviour:
@@ -1347,6 +1347,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: 200
+  _healing: {fileID: 5324780502153671077, guid: d1d77dfe1727994428d83073668e632d, type: 3}
 --- !u!114 &2803850148994246331
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11829,7 +11830,7 @@ GameObject:
   - component: {fileID: 8202387138378911035}
   m_Layer: 6
   m_Name: Sphere
-  m_TagString: Untagged
+  m_TagString: LootTakeZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12557,7 +12558,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8203121886608315099}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.002, y: -1.264, z: -0}
+  m_LocalPosition: {x: -0.002, y: -1.309, z: -0}
   m_LocalScale: {x: 1.8, y: 1.8, z: 1}
   m_Children: []
   m_Father: {fileID: 8197837952371662979}

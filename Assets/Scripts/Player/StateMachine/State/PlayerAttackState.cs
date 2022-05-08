@@ -25,6 +25,7 @@ public class PlayerAttackState : State
 
     private void OnEnable()
     {
+        _animator.StopPlayback();
         _attackEnemy = AttackAnimation();
         StartCoroutine(_attackEnemy);
     }
@@ -43,23 +44,21 @@ public class PlayerAttackState : State
         var timeForAnimation = 0.20f;
         while (_target != null)
         {
+            if (_target == null) yield break;
             var targetTransform = _target.GetTransform();
             transform.LookAt(targetTransform);
             _agent.SetDestination(targetTransform.position);
             _agent.isStopped = false;
             
-            _sword.GetComponent<Collider>().enabled = true;
             yield return new WaitForSeconds(0.01f);
+            
             _animator.Play("NormalAttack01_SingleTwohandSword");
-            yield return new WaitForSeconds(0.01f);
-            _animator.StopPlayback();
 
             yield return new WaitForSeconds(timeForAnimation);
 
             _agent.isStopped = true;
-            _sword.GetComponent<Collider>().enabled = false;
-            _sword.ClearEnemy();
-            _target = null;
+            if (_target.Health <= 0)
+                _target = null;
             
             yield return new WaitForSeconds(_timeBetweenAttack - timeForAnimation);
         }

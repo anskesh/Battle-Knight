@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 using UnityEngine.SceneManagement;
 
 public class LevelController : MonoBehaviour
@@ -11,6 +10,7 @@ public class LevelController : MonoBehaviour
 	[SerializeField] private List<GameObject> _levels;
 	[SerializeField] private Player _player;
 
+	private GroupsController _groups;
 	private SpawnPoint _spawn;
 	private Joystick _joystick;
 	private int _currentLevel;
@@ -27,6 +27,8 @@ public class LevelController : MonoBehaviour
 	private void LoadLevel(int numberLevel)
 	{
 		Instantiate(_levels[numberLevel]);
+		_groups = FindObjectOfType<GroupsController>();
+		_groups.GameEnded += OnGameEnded;
 		_enemyCounter.enabled = true;
 		_spawn = FindObjectOfType<SpawnPoint>();
 		_player.transform.position = _spawn.transform.position;
@@ -35,7 +37,6 @@ public class LevelController : MonoBehaviour
 	private void OnEnable()
 	{
 		_player.PlayerDied += OnPlayerDied;
-		_enemyCounter.GameEnded += OnGameEnded;
 		_victoryScreen.Next += OnNextLevelButton;
 		_victoryScreen.Restarted += OnRestart;
 		_gameOverScreen.Restarted += OnRestart;
@@ -43,7 +44,7 @@ public class LevelController : MonoBehaviour
 
 	private void OnDisable()
 	{
-		_enemyCounter.GameEnded -= OnGameEnded;
+		_groups.GameEnded -= OnGameEnded;
 		_victoryScreen.Next -= OnNextLevelButton;
 		_victoryScreen.Restarted -= OnRestart;
 		_gameOverScreen.Restarted -= OnRestart;
@@ -83,7 +84,6 @@ public class LevelController : MonoBehaviour
 
 	private void OnRestart()
 	{
-		PlayerPrefs.SetInt("currentLevel", _currentLevel);
 		SceneManager.LoadScene(0);
 	}
 }

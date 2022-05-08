@@ -4,8 +4,10 @@ using UnityEngine.Events;
 public class Player : MonoBehaviour, ICurable
 {
     [SerializeField] private int _health;
+    [SerializeField] private GameObject _healing;
 
     private Animator _animator;
+    private Collider _sword;
     private int _maxHealth;
     private int _money;
     
@@ -18,6 +20,7 @@ public class Player : MonoBehaviour, ICurable
     {
         _money = 0;
         _animator = GetComponent<Animator>();
+        _sword = GetComponentInChildren<Sword>().GetComponent<Collider>();
         _maxHealth = _health;
         HealthChanged?.Invoke(_health, _maxHealth);
         MoneyChanged?.Invoke(_money);
@@ -34,10 +37,11 @@ public class Player : MonoBehaviour, ICurable
     public bool AddHealth(int percent)
     {
         if (_health == _maxHealth) return false;
-        var health = _health * percent / 100;
+        Instantiate(_healing, transform);
+        var health = _maxHealth * percent / 100;
         _health += health;
-        HealthChanged?.Invoke(_health, _maxHealth);
         if (_health > _maxHealth) _health = _maxHealth;
+        HealthChanged?.Invoke(_health, _maxHealth);
         return true;
     }
 
@@ -47,8 +51,18 @@ public class Player : MonoBehaviour, ICurable
         MoneyChanged?.Invoke(_money);
     }
 
+    public void EnableSwordCollider()
+    {
+        _sword.enabled = true;
+    }
+    public void DisableSwordCollider()
+    {
+        _sword.enabled = false;
+    }
+    
     private void Died()
     {
+        _animator.StopPlayback();
         PlayerDied?.Invoke();
     }
 }

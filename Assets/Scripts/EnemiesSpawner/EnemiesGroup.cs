@@ -44,7 +44,8 @@ public class EnemiesGroup : MonoBehaviour
 				if (RandomPointPosition(transform.position, _range, out Vector3 result))
 				{
 					var enemy = Instantiate(_enemyTemplate[i], result, Quaternion.identity, transform);
-					enemy.transform.LookAt(_player.transform);
+					enemy.transform.Rotate(0, 180, 0);
+					/*enemy.transform.LookAt(_player.transform);*/
 					var enemyComponent = enemy.GetComponent<Enemy>();
 					enemyComponent.EnemyDied += OnEnemyDied;
 				}
