@@ -416,7 +416,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetState: {fileID: 2369298152676439227}
-  _radius: 3
+  _radius: 2.5
 --- !u!114 &4713475895147314605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -430,7 +430,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetState: {fileID: 5872747996412595107}
-  _radius: 3.5
+  _radius: 3
 --- !u!114 &7584029314408354614
 MonoBehaviour:
   m_ObjectHideFlags: 0
