@@ -3887,6 +3887,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2830680852643946480}
     m_Modifications:
+    - target: {fileID: 4900238617617362920, guid: b99f6244078669c489c2033374672c83, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e004f3d88e32eaf4584c09a615d3685c, type: 2}
     - target: {fileID: 6073677852688258183, guid: b99f6244078669c489c2033374672c83, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -5601,7 +5605,7 @@ PrefabInstance:
     - target: {fileID: 3065883321084316641, guid: 76884eb11e41cf340bafc40ec62f6386, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: f6c735d155051a94db7199d45d9c3e1a, type: 2}
+      objectReference: {fileID: 2100000, guid: e004f3d88e32eaf4584c09a615d3685c, type: 2}
     - target: {fileID: 3570449414011562548, guid: 76884eb11e41cf340bafc40ec62f6386, type: 3}
       propertyPath: m_Name
       value: Cave_Lair_Cave_Stone_Rock_Rubble_Pile_01

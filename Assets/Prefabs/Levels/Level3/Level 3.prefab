@@ -7767,11 +7767,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5131004749913709403, guid: fad7502150aff3945a8e8eeb1ab29a07, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.03999997
+      value: 0.04
       objectReference: {fileID: 0}
     - target: {fileID: 5131004749913709403, guid: fad7502150aff3945a8e8eeb1ab29a07, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.50000966
+      value: 0.45
       objectReference: {fileID: 0}
     - target: {fileID: 5131004749913709403, guid: fad7502150aff3945a8e8eeb1ab29a07, type: 3}
       propertyPath: m_LocalPosition.z
@@ -7779,19 +7779,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5131004749913709403, guid: fad7502150aff3945a8e8eeb1ab29a07, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.13061069
+      value: 0.16608174
       objectReference: {fileID: 0}
     - target: {fileID: 5131004749913709403, guid: fad7502150aff3945a8e8eeb1ab29a07, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.000000002854581
+      value: 0.0000000036298489
       objectReference: {fileID: 0}
     - target: {fileID: 5131004749913709403, guid: fad7502150aff3945a8e8eeb1ab29a07, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.99143374
+      value: 0.986112
       objectReference: {fileID: 0}
     - target: {fileID: 5131004749913709403, guid: fad7502150aff3945a8e8eeb1ab29a07, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.000000021668475
+      value: -0.000000021552209
       objectReference: {fileID: 0}
     - target: {fileID: 5131004749913709403, guid: fad7502150aff3945a8e8eeb1ab29a07, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -7799,7 +7799,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5131004749913709403, guid: fad7502150aff3945a8e8eeb1ab29a07, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -105.01
+      value: 160.88
       objectReference: {fileID: 0}
     - target: {fileID: 5131004749913709403, guid: fad7502150aff3945a8e8eeb1ab29a07, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -7812,6 +7812,10 @@ PrefabInstance:
     - target: {fileID: 5512174007509746145, guid: fad7502150aff3945a8e8eeb1ab29a07, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6304988343233749044, guid: fad7502150aff3945a8e8eeb1ab29a07, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6304988343233749044, guid: fad7502150aff3945a8e8eeb1ab29a07, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -10811,7 +10815,7 @@ PrefabInstance:
     - target: {fileID: 3065883321084316641, guid: 76884eb11e41cf340bafc40ec62f6386, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: f6c735d155051a94db7199d45d9c3e1a, type: 2}
+      objectReference: {fileID: 2100000, guid: e004f3d88e32eaf4584c09a615d3685c, type: 2}
     - target: {fileID: 3570449414011562548, guid: 76884eb11e41cf340bafc40ec62f6386, type: 3}
       propertyPath: m_Name
       value: Cave_Lair_Cave_Stone_Rock_Rubble_Pile_01
@@ -11178,6 +11182,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7626386905451237470}
     m_Modifications:
+    - target: {fileID: 4900238617617362920, guid: b99f6244078669c489c2033374672c83, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e004f3d88e32eaf4584c09a615d3685c, type: 2}
     - target: {fileID: 6073677852688258183, guid: b99f6244078669c489c2033374672c83, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -12753,7 +12761,7 @@ PrefabInstance:
     - target: {fileID: 3065883321084316641, guid: 76884eb11e41cf340bafc40ec62f6386, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: f6c735d155051a94db7199d45d9c3e1a, type: 2}
+      objectReference: {fileID: 2100000, guid: e004f3d88e32eaf4584c09a615d3685c, type: 2}
     - target: {fileID: 3570449414011562548, guid: 76884eb11e41cf340bafc40ec62f6386, type: 3}
       propertyPath: m_Name
       value: Cave_Lair_Cave_Stone_Rock_Rubble_Pile_01
@@ -16561,6 +16569,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7626386904018153882}
     m_Modifications:
+    - target: {fileID: 4900238617617362920, guid: b99f6244078669c489c2033374672c83, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e004f3d88e32eaf4584c09a615d3685c, type: 2}
     - target: {fileID: 6073677852688258183, guid: b99f6244078669c489c2033374672c83, type: 3}
       propertyPath: m_RootOrder
       value: 10
