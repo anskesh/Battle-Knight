@@ -14,7 +14,7 @@ public class DistanceOffTransition : Transition
 
 	private void Update()
 	{
-		if (Vector3.Distance(transform.position, FindObjectOfType<Player>().transform.position) >= _radius)
+		if (Vector3.Distance(transform.position, _target.transform.position) >= _radius)
 			NeedTransit = true;
 	}
 }

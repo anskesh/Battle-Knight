@@ -96,7 +96,7 @@ public class EnemiesGroup : MonoBehaviour
 	{
 		if (other.CompareTag("Player"))
 		{
-			_player = FindObjectOfType<Player>();
+			_player = other.GetComponent<Player>();
 			TakeTargetToEnemy();
 		}
 	}
